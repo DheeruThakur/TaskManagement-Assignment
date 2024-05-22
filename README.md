@@ -302,4 +302,224 @@ The Task Management API is a backend service designed to manage user tasks and t
 
 ```
 
+---
+
+``` 7. PUT /tasks/:taskId/subtasks```
+
+* you have to pass actual taskId(who's subtasks you want to update) given by mongoDB in url in place of ":taskId"
+
+| Parameter   | Type              | Description   | Passing place of parameter  |
+|-------------|-------------------|---------------|-----------------------------|
+| email       | string            | Required      |  In request's body          |
+| subtaskList | Array of subtasks | Required      |  In request's body          |
+
+
+
+#### Success Response
+```json
+{
+    "statusCode": 200,
+    "data": [
+        {
+            "subject": "mongodb",
+            "deadline": "2024-05-30",
+            "status": "completed"
+        },
+        {
+            "subject": "dynamodb",
+            "deadline": "2024-05-30",
+            "status": "completed"
+        },
+        {
+            "subject": "mysql",
+            "deadline": "2024-05-30",
+            "status": "completed"
+        }
+    ],
+    "message": "Task updated successfully",
+    "success": true
+}
+
+```
+
+---
+
+``` 8. DELETE /tasks/:taskId```
+
+* you have to pass actual taskId(which you want to delete) given by mongoDB in url in place of ":taskId"
+
+| Parameter   | Type        | Description   | Passing place of parameter  |
+|-------------|-------------|---------------|-----------------------------|
+| email       | string      | Required      |  In request's body          |
+
+
+
+
+#### Success Response
+```json
+{
+    "statusCode": 200,
+    "data": {
+        "_id": "664ce603900f556189797508",
+        "name": "Dheeru Thakur",
+        "email": "sdheerendra382@gmail.com",
+        "tasks": [
+            {
+                "subject": "DBMS",
+                "deadline": "2024-05-21T00:00:00.000Z",
+                "status": "pending",
+                "isDeleted": false,
+                "_id": "664ce621900f55618979750b",
+                "subtasks": [
+                    {
+                        "subject": "mysql",
+                        "deadline": "2024-05-21T18:30:00.000Z",
+                        "status": "pending",
+                        "isDeleted": false,
+                        "_id": "664ce723bcb9b95e9fcdf667"
+                    },
+                    {
+                        "subject": "mongoDB",
+                        "deadline": "2024-05-21T18:30:00.000Z",
+                        "status": "pending",
+                        "isDeleted": false,
+                        "_id": "664ce74bdddc3c346eca5b03"
+                    },
+                    {
+                        "subject": "postgres",
+                        "deadline": "2024-05-21T18:30:00.000Z",
+                        "status": "pending",
+                        "isDeleted": false,
+                        "_id": "664ce75ddddc3c346eca5b09"
+                    }
+                ]
+            },
+            {
+                "subject": "Operating system",
+                "deadline": "2024-05-21T00:00:00.000Z",
+                "status": "pending",
+                "isDeleted": true,
+                "_id": "664ce686900f55618979750f",
+                "subtasks": [
+                    {
+                        "subject": "windows",
+                        "deadline": "2024-05-21T18:30:00.000Z",
+                        "status": "pending",
+                        "isDeleted": false,
+                        "_id": "664ce779dddc3c346eca5b10"
+                    },
+                    {
+                        "subject": "linux",
+                        "deadline": "2024-05-21T18:30:00.000Z",
+                        "status": "pending",
+                        "isDeleted": false,
+                        "_id": "664ce785dddc3c346eca5b18"
+                    },
+                    {
+                        "subject": "macos",
+                        "deadline": "2024-05-21T18:30:00.000Z",
+                        "status": "pending",
+                        "isDeleted": false,
+                        "_id": "664ce78ddddc3c346eca5b21"
+                    }
+                ]
+            }
+        ],
+        "__v": 2
+    },
+    "message": "Task deleted successfully",
+    "success": true
+}
+```
+
+---
+
+``` 9. DELETE /tasks/:taskId/subtask/:subtaskId```
+
+* you have to pass actual taskId(who's subtask you want to delete) and subtaskId(which subtask you want to delete) given by mongoDB in url in place of ":taskId" and "subtaskId" respectively.
+
+| Parameter   | Type        | Description   | Passing place of parameter  |
+|-------------|-------------|---------------|-----------------------------|
+| email       | string      | Required      |  In request's body          |
+
+
+
+
+#### Success Response
+```json
+{
+    "statusCode": 200,
+    "data": {
+        "_id": "664ce603900f556189797508",
+        "name": "Dheeru Thakur",
+        "email": "sdheerendra382@gmail.com",
+        "tasks": [
+            {
+                "subject": "DBMS",
+                "deadline": "2024-05-21T00:00:00.000Z",
+                "status": "pending",
+                "isDeleted": false,
+                "_id": "664ce621900f55618979750b",
+                "subtasks": [
+                    {
+                        "subject": "mysql",
+                        "deadline": "2024-05-21T18:30:00.000Z",
+                        "status": "pending",
+                        "isDeleted": false,
+                        "_id": "664ce723bcb9b95e9fcdf667"
+                    },
+                    {
+                        "subject": "mongoDB",
+                        "deadline": "2024-05-21T18:30:00.000Z",
+                        "status": "pending",
+                        "isDeleted": false,
+                        "_id": "664ce74bdddc3c346eca5b03"
+                    },
+                    {
+                        "subject": "postgres",
+                        "deadline": "2024-05-21T18:30:00.000Z",
+                        "status": "pending",
+                        "isDeleted": true,
+                        "_id": "664ce75ddddc3c346eca5b09"
+                    }
+                ]
+            },
+            {
+                "subject": "Operating system",
+                "deadline": "2024-05-21T00:00:00.000Z",
+                "status": "pending",
+                "isDeleted": true,
+                "_id": "664ce686900f55618979750f",
+                "subtasks": [
+                    {
+                        "subject": "windows",
+                        "deadline": "2024-05-21T18:30:00.000Z",
+                        "status": "pending",
+                        "isDeleted": false,
+                        "_id": "664ce779dddc3c346eca5b10"
+                    },
+                    {
+                        "subject": "linux",
+                        "deadline": "2024-05-21T18:30:00.000Z",
+                        "status": "pending",
+                        "isDeleted": false,
+                        "_id": "664ce785dddc3c346eca5b18"
+                    },
+                    {
+                        "subject": "macos",
+                        "deadline": "2024-05-21T18:30:00.000Z",
+                        "status": "pending",
+                        "isDeleted": false,
+                        "_id": "664ce78ddddc3c346eca5b21"
+                    }
+                ]
+            }
+        ],
+        "__v": 2
+    },
+    "message": "SubTask deleted successfully",
+    "success": true
+}
+```
+
 
