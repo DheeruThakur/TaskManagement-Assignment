@@ -21,10 +21,10 @@ The Task Management API is a backend service designed to manage user tasks and t
 
 ### Installation
 
-1. Clone the repository: git clone 
+1. Clone the repository: git clone https://github.com/DheeruThakur/TaskManagement-Assignment.git
 2. Navigate to the project directory
 3. Install dependencies for server: npm install
-4. Set up environment variables in .env file in their root directory (e.g. MONGODB_URI, PORT)
+4. Set up environment variables in .env file in src directory (MONGODB_URI, PORT)
 5. RUN npm start in root folder to start the server
 6. Access the app in your browser: ```http://localhost:PORT```
 
