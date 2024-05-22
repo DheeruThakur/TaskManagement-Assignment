@@ -175,7 +175,7 @@ const deleteSubTask = async (req, res) => {
 // fetchAllTasks function contains all the logic to fetch all the tasks along with their subtasks of a user.
 const fetchAllTasks = async (req, res) => {
   try {
-    const { email } = req.body;
+    const {email}  = req.query;
 
     // check for the availablity of email field 
     if (!email) {
@@ -208,7 +208,7 @@ const fetchAllTasks = async (req, res) => {
 const fetchAllSubTasks = async (req, res) => {
   try {
     const { taskId } = req.params;
-    const { email } = req.body;
+    const { email } = req.query;
 
     // check for the availability of all the fields in the request's body
     if (!taskId || !email) {
