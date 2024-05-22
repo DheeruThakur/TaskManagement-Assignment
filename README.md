@@ -37,6 +37,9 @@ The Task Management API is a backend service designed to manage user tasks and t
 - `app.js`: creates express app.
 - `index.js`: Main entry point.
 - `constants.js`: stores database name
+
+## Schema Documentation Link 
+[https://docs.google.com/document/d/1JDEeG_gn5kpSImywhgP8GJgU1MlzYtbXZw2Si-lZtPc/edit?usp=sharing]
   
 ### API Endpoints
 
