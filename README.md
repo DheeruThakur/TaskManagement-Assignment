@@ -33,7 +33,9 @@ The Task Management API is a backend service designed to manage user tasks and t
 - `/routes`: API route definitions.
 - `/controllers`: Request handling logic.
 - `/db`: handle DataBase connection and the aggregation query file
+- `/utils`: handle custom API response logic
 - `app.js`: Main entry point.
+- `constants.js`: stores database name
   
 ### API Endpoints
 
