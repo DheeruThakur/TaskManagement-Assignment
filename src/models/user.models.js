@@ -1,5 +1,6 @@
 const { mongoose, Schema } = require("mongoose");
 
+// Embeded schema for taskSchema
 const subtaskSchema = new Schema({
   subject: {
     type: String,
@@ -20,6 +21,7 @@ const subtaskSchema = new Schema({
   },
 });
 
+// Embeded schema for userSchema
 const taskSchema = new Schema({
   subject: {
     type: String,

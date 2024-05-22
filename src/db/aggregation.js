@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+// this aggregation query function contains aggregation query to fetch all tasks whose isDeleted flag is false and also fetch their 
+// subtasks whose isDeleted flag is false
 const taskAggregationQuery = (email) => [
   {
     $match: { email },
@@ -46,6 +48,7 @@ const taskAggregationQuery = (email) => [
   },
 ];
 
+// this aggregation query function contains aggregation query to fetch all subtasks whose isDeleted flag is false 
 const subTaskAggregationQuery = (email, taskId) => [
   {
     $match: { email },
@@ -67,4 +70,5 @@ const subTaskAggregationQuery = (email, taskId) => [
   },
 ];
 
+// export both the functions
 module.exports = { taskAggregationQuery, subTaskAggregationQuery };

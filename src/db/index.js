@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const {DB_NAME} = require("../constants.js");
 
-
+// create mongodb connection instance
 const connectDB = async () => {
     try {
         await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
@@ -12,4 +12,5 @@ const connectDB = async () => {
     }
 }
 
+// export the connection function
 module.exports = connectDB
